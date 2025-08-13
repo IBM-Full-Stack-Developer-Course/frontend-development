@@ -1,23 +1,26 @@
-import {useEffect, useState} from "react";
+// import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
+import {selectSuperCoins} from "./CartSlice";
 
 const SuperCoin = () => {
-    const [superCoin, setSuperCoin] = useState(0);
+    // const [superCoin, setSuperCoin] = useState(0);
 
-    const cartItems = useSelector(state => state.cart.cartItems);
-    const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    // const cartItems = useSelector(state => state.cart.cartItems);
+    // const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    //
+    // useEffect(() => {
+    //     if (totalAmount >= 300) {
+    //         setSuperCoin(30);
+    //     } else if (totalAmount >= 200) {
+    //         setSuperCoin(20);
+    //     } else if (totalAmount >= 100) {
+    //         setSuperCoin(10);
+    //     } else {
+    //         setSuperCoin(0);
+    //     }
+    // }, [totalAmount]);
 
-    useEffect(() => {
-        if (totalAmount >= 300) {
-            setSuperCoin(30);
-        } else if (totalAmount >= 200) {
-            setSuperCoin(20);
-        } else if (totalAmount >= 100) {
-            setSuperCoin(10);
-        } else {
-            setSuperCoin(0);
-        }
-    }, [totalAmount]);
+    const superCoin = useSelector(selectSuperCoins);
 
     return (
         <div className="super-coin" style={{textAlign: "center"}}>
